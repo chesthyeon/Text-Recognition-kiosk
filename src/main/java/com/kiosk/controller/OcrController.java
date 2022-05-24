@@ -9,12 +9,12 @@ import java.net.URISyntaxException;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:3000"})//프론트서버랑 연결
 public class OcrController {
 
     private final OcrService ocrService;
-    @GetMapping("/ocr/{}")
-    ResponseEntity<?> addPost(@RequestParam String url) throws URISyntaxException {
+    @GetMapping("/ocr/{url}")
+    ResponseEntity<?> addPost(@PathVariable("url") String url) {
         return ResponseEntity.ok(ocrService.getOcr(url));
     }
+
 }
