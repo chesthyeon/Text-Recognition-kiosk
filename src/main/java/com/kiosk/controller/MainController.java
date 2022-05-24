@@ -1,7 +1,9 @@
 package com.kiosk.controller;
 
+import com.kiosk.dto.CartDetailDto;
 import com.kiosk.dto.ItemSearchDto;
 import com.kiosk.dto.MainItemDto;
+import com.kiosk.service.CartService;
 import com.kiosk.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -18,6 +21,7 @@ import java.util.Optional;
 public class MainController {
 
     private final ItemService itemService;
+    private final CartService cartService;
 
     @GetMapping(value = "/")
     public String main(ItemSearchDto itemSearchDto, Optional<Integer> page, Model model){
@@ -28,6 +32,8 @@ public class MainController {
         model.addAttribute("items", items);
         model.addAttribute("itemSearchDto", itemSearchDto);
         model.addAttribute("maxPage", 5);
+        List<CartDetailDto> cartDetailList = cartService.getCartList();
+        model.addAttribute("cartItems", cartDetailList);
 
         return "main";
     }

@@ -3,7 +3,6 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout1}">
 
-
 <head>
     <meta name="_csrf" th:content="${_csrf.token}"/>
     <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
@@ -11,7 +10,6 @@
 
 <!-- 사용자 스크립트 추가 -->
 <th:block layout:fragment="script">
-
     <script th:inline="javascript">
 
         $(document).ready(function(){
@@ -99,7 +97,7 @@
                 dataType : "json",
                 cache   : false,
                 success  : function(result, status){
-                    location.href='/';
+                    location.href='/cart';
                 },
                 error : function(jqXHR, status, error){
 
@@ -116,20 +114,15 @@
 
     </script>
 </th:block>
+
 <!-- 사용자 CSS 추가 -->
 <th:block layout:fragment="css">
     <style>
-        .carousel-inner > .item {
-            height: 350px;
-        }
-        .margin{
-            margin-bottom:30px;
-        }
-        a:hover{
-            text-decoration:none;
-        }
-        .center{
-            text-align:center;
+        .content-mg{
+            margin-left:25%;
+            margin-right:25%;
+            margin-top:2%;
+            margin-bottom:100px;
         }
         .repImgDiv{
             margin-right:15px;
@@ -149,56 +142,12 @@
     </style>
 </th:block>
 
-<div layout:fragment="content">
-
-    <input type="hidden" name="searchQuery" th:value="${itemSearchDto.searchQuery}">
-    <div th:if="${not #strings.isEmpty(itemSearchDto.searchQuery)}" class="center">
-        <p class="h3 font-weight-bold" th:text="${itemSearchDto.searchQuery} + '검색 결과'"></p>
-    </div>
-
-    <div class="row">
-        <th:block th:each="item, status: ${items.getContent()}">
-            <div class="col-md-4 margin">
-                <div class="card">
-                    <a th:href="'/item/' +${item.id}" class="text-dark">
-                        <img th:src="${item.imgUrl}" class="card-img-top" th:alt="${item.itemNm}" height="300" width="100">
-                        <div class="card-body">
-                            <h4 class="card-title">[[${item.itemNm}]]</h4>
-<!--                            <p class="card-text">[[${item.itemDetail}]]</p>-->
-                            <h3 class="card-title text-danger">[[${item.price}]]원</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </th:block>
-    </div>
-
-    <div th:with="start=${(items.number/maxPage)*maxPage + 1}, end=(${(items.totalPages == 0) ? 1 : (start + (maxPage - 1) < items.totalPages ? start + (maxPage - 1) : items.totalPages)})" >
-        <ul class="pagination justify-content-center">
-
-            <li class="page-item" th:classappend="${items.number eq 0}?'disabled':''">
-                <a th:href="@{'/' + '?searchQuery=' + ${itemSearchDto.searchQuery} + '&page=' + ${items.number-1}}" aria-label='Previous' class="page-link">
-                    <span aria-hidden='true'>Previous</span>
-                </a>
-            </li>
-
-            <li class="page-item" th:each="page: ${#numbers.sequence(start, end)}" th:classappend="${items.number eq page-1}?'active':''">
-                <a th:href="@{'/' +'?searchQuery=' + ${itemSearchDto.searchQuery} + '&page=' + ${page-1}}" th:inline="text" class="page-link">[[${page}]]</a>
-            </li>
-
-            <li class="page-item" th:classappend="${items.number+1 ge items.totalPages}?'disabled':''">
-                <a th:href="@{'/' +'?searchQuery=' + ${itemSearchDto.searchQuery} + '&page=' + ${items.number+1}}" aria-label='Next' class="page-link">
-                    <span aria-hidden='true'>Next</span>
-                </a>
-            </li>
-
-        </ul>
-    </div>
+<div layout:fragment="content" class="content-mg">
 
     <h2 class="mb-4">
-        담은 목록
+        장바구니 목록
     </h2>
-<!--카트-->
+
     <div>
 
         <table class="table">
@@ -263,3 +212,5 @@
     </div>
 
 </div>
+
+</html>
