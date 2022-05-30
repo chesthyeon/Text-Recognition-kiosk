@@ -134,6 +134,7 @@ public class OcrService {
                             cartItemDto.setItemId(item.getId());
                             cartItemDto.setCount(map.get(s));
                             cartService.addCart(cartItemDto);
+                            System.out.println(s + ", " + map.get(s));
                         }
                     }
 
