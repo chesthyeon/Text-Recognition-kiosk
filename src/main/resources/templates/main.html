@@ -114,6 +114,14 @@
             });
         }
 
+        function ocr(){
+            location.href='/ocr/camera'
+        }
+        function order(){
+            alert("주문이 완료 되었습니다.")
+            location.href='/order'
+        }
+
     </script>
 </th:block>
 <!-- 사용자 CSS 추가 -->
@@ -257,7 +265,8 @@
         </h2>
 
         <div class="text-center mt-3">
-            <button type="button" class="btn btn-primary btn-lg" onclick="">주문하기</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="order()">주문하기</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="ocr()">OCR</button>
         </div>
 
     </div>

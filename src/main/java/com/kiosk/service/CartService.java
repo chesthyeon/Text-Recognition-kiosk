@@ -62,6 +62,12 @@ public class CartService {
                 .orElseThrow(EntityNotFoundException::new);
         cartItemRepository.delete(cartItem);
     }
+    public void deleteAllCartItem() {
+        List<CartItem> cartItems = cartItemRepository.findAll();
+        for(CartItem cartItem : cartItems){
+            deleteCartItem(cartItem.getId());
+        }
+    }
 
 
 }
