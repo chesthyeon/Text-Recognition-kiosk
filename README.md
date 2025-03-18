@@ -3,16 +3,19 @@
 실제 어르신분들 또는 청각/말을 못하는 장애인 분들께서 키오스크로 주문을 어려워하셔서, 카운터 응대 직원이 카운터로 올 때까지 오랜 시간을 기다려가면서까지 **자녀의 심부름 혹은 본인이 직접 주문하실 때 `종이에 메뉴를 적어` 카운터 응대 직원에게 건내주면서 주문을 도와달라 하시는 경우가 많았습니다.**
 
 ### 사용기술
-Java
-SpringBoot
-Jpa
-H2
-Html
-CSS
-javascript
-Jquery
-Naver Clova OCR API
-aws
+<div> 
+  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">
+  <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
+  <img src="https://img.shields.io/badge/JPA-6DB33F?style=for-the-badge&logo=spring&logoColor=white">
+  <img src="https://img.shields.io/badge/H2-003366?style=for-the-badge&logo=h2&logoColor=white">
+  <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+  <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+  <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
+  <img src="https://img.shields.io/badge/Naver_Clova_OCR-03C75A?style=for-the-badge&logo=naver&logoColor=white">
+  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white">
+</div>
+
 
 해당 기술을 깃허브에 리드미에 올리려고 하는데
 글만 적으니까 너무 안이뻐 보여
