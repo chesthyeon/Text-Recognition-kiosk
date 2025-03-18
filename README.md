@@ -1,95 +1,46 @@
-# Thymeleaf-and-SpringBoot
-kiosk :: Thymeleaf and SpringBoot
+### 프로젝트 목표
 
-api 문서샘플
-1. Read store-list
+실제 어르신분들 또는 청각/말을 못하는 장애인 분들께서 키오스크로 주문을 어려워하셔서, 카운터 응대 직원이 카운터로 올 때까지 오랜 시간을 기다려가면서까지 **자녀의 심부름 혹은 본인이 직접 주문하실 때 `종이에 메뉴를 적어` 카운터 응대 직원에게 건내주면서 주문을 도와달라 하시는 경우가 많았습니다.**
 
-GET http://ec2-13-209-14-10.ap-northeast-2.compute.amazonaws.com:8000/api/stores
-	
-Response:
-[
-    {
-        "id": 1,
-        "name": "GS25역삼상록점",
-        "latitude": 37.504022687681610,
-        "longitude": 127.044016840943810,
-        "stickers": [
-            {
-                "id": 1,
-                "name": "피카츄",
-                "num": "1"
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "name": "GS25역삼띵동점",
-        "latitude": 37.505135994220550,
-        "longitude": 127.042473715607740,
-        "stickers": []
-    },
-    {
-        "id": 3,
-        "name": "세븐일레븐 KT강남점",
-        "latitude": 37.504329904510770,
-        "longitude": 127.041602418634470,
-        "stickers": []
-    },
-    {
-        "id": 4,
-        "name": "GS25 강남상록회관점",
-        "latitude": 37.504889926223186,
-        "longitude": 127.043960801604300,
-        "stickers": []
-    },
-    {
-        "id": 5,
-        "name": "CU 역삼성보점",
-        "latitude": 37.502396052829390,
-        "longitude": 127.044866912535580,
-        "stickers": []
-    },
-    {
-        "id": 6,
-        "name": "GS25 역삼넥스빌점",
-        "latitude": 37.501975017511150,
-        "longitude": 127.044377535138520,
-        "stickers": []
-    }
-]
+### 사용기술
+Java
+SpringBoot
+Jpa
+H2
+Html
+CSS
+javascript
+Jquery
+Naver Clova OCR API
+aws
 
-2. Read store
+해당 기술을 깃허브에 리드미에 올리려고 하는데
+글만 적으니까 너무 안이뻐 보여
+조금 더 해당 기술 이미지가 이미 존재하지 않아??
+만들어줘
 
-GET http://ec2-13-209-14-10.ap-northeast-2.compute.amazonaws.com:8000/api/stores/<store_id>
+### 진행 내용 및 결과
 
-Response
-[
-    {
-        "name": "피카츄",
-        "num": "1",
-        "count": 1
-    },
-    {
-        "name": "파이리",
-        "num": "2",
-        "count": 2
-    }
-]
+고객이 원하는 메뉴를 종이에 적어 **카메라에 비추면, OCR 키오스크의 AI서비스가 해당 글자를 인식하여 원하는 메뉴의 결제를 도와주도록 하는 시스템**을 개발했습니다.
 
-3. Create Sticker
+![image](https://github.com/user-attachments/assets/ad2d6135-4a0b-4661-ad4b-aa101ae7b29a)
 
-POST http://ec2-13-209-14-10.ap-northeast-2.compute.amazonaws.com:8000/api/sticker
 
-Body
-{
-    "sticker_name" : "파이리",
-    "sticker_num" : "2",
-    "store_id" : 1
-}
+위와 같이 높은 인식률을 기반으로 불필요한 주문 과정을 생략하여 디지털 취약 계층에게 필요한 절차로만 간략하게 구성하여 개발하였습니다.
 
-Response
-{
-    "id": 3,
-    "name": "파이리",
-    "num": "2"
-}
+하단 사진은 OCR기능을 활용하여 주문하는 음식을 장바구니에 넣은 화면 입니다.
+
+![image](https://github.com/user-attachments/assets/f645e2b5-a801-4075-bc7a-6f672c1ee43c)
+
+
+기존 키오스크에 비해 **‘주문 속도’, ‘과소비 방지’, 간편/정확성‘** 면에서 더 뛰어난 이점을 낳았습니다.
+
+### 시스템 구성도
+
+![image](https://github.com/user-attachments/assets/e3e4bd8b-326b-42de-a6e6-859463cc04ba)
+
+
+### 프로젝트 진행 방식
+
+![image](https://github.com/user-attachments/assets/ab1bda87-33a5-436e-9013-34a25d858162)
+
